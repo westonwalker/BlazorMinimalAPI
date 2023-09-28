@@ -1,0 +1,36 @@
+﻿@layout MainLayout
+@inherits SparkComponentBase
+
+<PageTitle>Add contacts</PageTitle>
+
+<h1>
+    Add Contacts
+</h1>
+
+<a href="@Link.GetPathByName("Home")">Home page</a>
+<form method="post" action="@Link.GetPathByName("Contacts.Store")">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="Name" value="@Form.Name" />
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Email" value="@Form.Email" />
+    </div>
+    <div>
+        <input type="checkbox" id="send-me-deals" name="SendMeDeals" value="@Form.SendMeDeals" />
+        <label for="send-me-deals">Send me deals</label>
+    </div>
+    <button type="submit">Submit</button>
+    <AntiforgeryToken />
+</form>
+
+@code {
+    [Parameter]
+    public CreateContactForm Form { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("testing");
+    }
+}

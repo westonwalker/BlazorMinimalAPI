@@ -1,0 +1,24 @@
+﻿
+<LayoutView Layout="@Layout">
+    <DynamicComponent Type="ComponentType" Parameters="Parameters" />
+</LayoutView>
+
+@code {
+    [Parameter, EditorRequired]
+    public Type ComponentType { get; set; }
+
+    [Parameter]
+    public Type Layout { get; set; } = typeof(MainLayout);
+
+    [Parameter]
+    public IDictionary<string, object> Parameters { get; set; }
+
+    // protected override void OnInitialized()
+    // {
+    //     DynamicComponent = builder =>
+    //     {
+    //         builder.OpenComponent(0, ComponentInstance.GetType());
+    //         builder.CloseComponent();
+    //     };
+    // }
+}
