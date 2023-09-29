@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.AspNetCore.Components;
+using BlazorMinimalApis.Lib;
+using System.Linq.Expressions;
+using Microsoft.AspNetCore.Components.Forms;
 
-namespace CustomLivewireRouter.Components;
+namespace BlazorMinimalApis.Lib.Components;
 
 public class SparkComponentBase : IComponent
 {
@@ -13,18 +16,36 @@ public class SparkComponentBase : IComponent
     private bool _hasCalledOnAfterRender;
     [Inject] public LinkGenerator Link { get; set; }
     [Inject] public NavigationManager Navigation { get; set; }
+    [Parameter] public List<ValidationError>? Errors { get; set; }
+    public bool HasErrors = false;
+    protected string Message { get; set; }
 
     /// <summary>
     /// Constructs an instance of <see cref="ComponentBase"/>.
     /// </summary>
     public SparkComponentBase()
     {
+
         _renderFragment = builder =>
         {
             _hasPendingQueuedRender = false;
             _hasNeverRendered = false;
             BuildRenderTree(builder);
         };
+    }
+
+    public bool HasError<TValue>(Expression<Func<TValue>>? For)
+    {
+        var _fieldIdentifier = FieldIdentifier.Create(For);
+
+        if (!HasErrors) return false;
+
+        var error = Errors.Where(x => x.MemberName == _fieldIdentifier.FieldName).FirstOrDefault();
+
+        if (error == null) return false;
+
+        Message = error.Message;
+        return true;
     }
 
     /// <summary>
@@ -221,8 +242,14 @@ public class SparkComponentBase : IComponent
 
     private Task CallOnParametersSetAsync()
     {
+        if (Errors != null && Errors.Count > 0)
+        {
+            HasErrors = true;
+        }
+
         OnParametersSet();
         var task = OnParametersSetAsync();
+
         // If no async work is to be performed, i.e. the task has already ran to completion
         // or was canceled by the time we got to inspect it, avoid going async and re-invoking
         // StateHasChanged at the culmination of the async work.

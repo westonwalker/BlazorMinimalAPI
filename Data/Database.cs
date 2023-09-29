@@ -1,4 +1,4 @@
-﻿namespace CustomLivewireRouter.Data;
+﻿namespace BlazorMinimalApis.Data;
 
 public static class Database
 {
@@ -7,7 +7,9 @@ public static class Database
 
 public class Contact
 {
+    public int Id { get; set; }
     public string Name { get; set; }
     public string Email { get; set; }
-    public bool SendMeDeals { get; set; }
+    public string City { get; set; }
+    public string Phone { get; set; }
 }

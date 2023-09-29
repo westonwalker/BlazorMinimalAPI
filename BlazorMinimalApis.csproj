@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\" />
+    <Folder Include="Components\Shared\" />
+    <Folder Include="Lib\Api\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.7.1" />
+    <PackageReference Include="Riok.Mapperly" Version="3.2.0" />
   </ItemGroup>
 
 </Project>

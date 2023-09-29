@@ -1,7 +1,7 @@
-using CustomLivewireRouter.Components;
-using CustomLivewireRouter.Components.Pages;
-using CustomLivewireRouter.Lib;
-using CustomLivewireRouter.Routes;
+using BlazorMinimalApis.Components;
+using BlazorMinimalApis.Components.Pages;
+using BlazorMinimalApis.Lib;
+using BlazorMinimalApis.Routes;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Endpoints;
 using Microsoft.AspNetCore.Identity;

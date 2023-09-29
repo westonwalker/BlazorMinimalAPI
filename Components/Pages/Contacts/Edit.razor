@@ -1,15 +1,15 @@
 ﻿@layout MainLayout
 @inherits SparkComponentBase
 
-<PageTitle>Add contacts</PageTitle>
+<PageTitle>Edit contacts</PageTitle>
 
 <h1 class="mb-8 text-3xl font-bold">
     <a class="text-blue-500 hover:text-blue-600" href="@Link.GetPathByName("Contacts")">Contacts</a>
     <span class="text-blue-500 font-medium">/</span>
-    Create 
+    @Form.Name
 </h1>
 <div class="max-w-3xl bg-white rounded-md shadow overflow-hidden">
-    <form method="post" action="@Link.GetPathByName("Contacts.Store")">
+    <form method="post" action="@Link.GetPathByName("Contacts.Update", new { Id = Form.Id} )">
         <div class="flex flex-wrap -mb-8 -mr-6 p-8">
             <div class="pb-8 pr-6 w-full lg:w-1/2 space-y-2">
                 <label class="" for="Name">Name</label>
@@ -40,9 +40,10 @@
                 }
             </div>
         </div>
-        <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
+        <div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-100">
+            <a href="@Link.GetPathByName("Contacts.Delete", new { Id = Form.Id} )" class="text-red-500 hover:underline">Delete Contact</a>
             <button class="px-4 py-2 font-medium rounded bg-blue-500 hover:bg-blue-600 text-white transition" type="submit">
-                Create Contact
+                Update contact
             </button>
         </div>
         <AntiforgeryToken />
@@ -51,5 +52,5 @@
 
 @code {
     [Parameter]
-    public CreateContactForm Form { get; set; } = new();
+    public EditContactForm Form { get; set; } = new();
 }
