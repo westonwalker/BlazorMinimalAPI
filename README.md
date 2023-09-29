@@ -1,4 +1,4 @@
-# Contact Manager: Demo for using .NET Minimal APIS, Razor Components, and HTMX
+# .NET Minimal APIS, Razor Components, and HTMX
 This is a demo on how to use Minimal APIs + Razor Components + HTMX to create dynamic server side rendered apps.
 
 Using Minimal APIs and Razor components is possible because of a new class in .NET 8: **RazorComponentResult**
