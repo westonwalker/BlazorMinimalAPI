@@ -1,4 +1,4 @@
-﻿namespace BlazorMinimalApis.Lib;
+﻿namespace BlazorMinimalApis.Lib.Validation;
 
 public class ValidationResponse
 {

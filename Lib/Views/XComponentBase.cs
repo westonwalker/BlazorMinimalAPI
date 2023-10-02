@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.AspNetCore.Components;
-using BlazorMinimalApis.Lib;
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.Components.Forms;
+using BlazorMinimalApis.Lib.Session;
+using BlazorMinimalApis.Lib.Validation;
 
-namespace BlazorMinimalApis.Lib.Components;
+namespace BlazorMinimalApis.Lib.Views;
 
-public class SparkComponentBase : IComponent
+public class XComponentBase : IComponent
 {
     private readonly RenderFragment _renderFragment;
     private RenderHandle _renderHandle;
@@ -16,14 +17,17 @@ public class SparkComponentBase : IComponent
     private bool _hasCalledOnAfterRender;
     [Inject] public LinkGenerator Link { get; set; }
     [Inject] public NavigationManager Navigation { get; set; }
-    [Parameter] public List<ValidationError>? Errors { get; set; }
+    [Inject] IHttpContextAccessor HttpContextAccessor { get; set; }
+    [CascadingParameter] PageState PageState { get; set; }
+    [Parameter] public List<ValidationError>? Errors { get; set; } = new();
+    SessionManager SessionManager;
     public bool HasErrors = false;
     protected string Message { get; set; }
 
     /// <summary>
     /// Constructs an instance of <see cref="ComponentBase"/>.
     /// </summary>
-    public SparkComponentBase()
+    public XComponentBase()
     {
 
         _renderFragment = builder =>
@@ -46,6 +50,24 @@ public class SparkComponentBase : IComponent
 
         Message = error.Message;
         return true;
+	}
+
+	public string ValidationError<TValue>(Expression<Func<TValue>>? For)
+	{
+		if (!HasErrors) return "";
+
+		var _fieldIdentifier = FieldIdentifier.Create(For);
+
+		var error = Errors.Where(x => x.MemberName == _fieldIdentifier.FieldName).FirstOrDefault();
+
+		if (error == null) return "";
+
+		return error.Message;
+	}
+
+	public SessionManager Session()
+    {
+        return SessionManager;
     }
 
     /// <summary>
@@ -246,6 +268,7 @@ public class SparkComponentBase : IComponent
         {
             HasErrors = true;
         }
+        SessionManager = new SessionManager(HttpContextAccessor);
 
         OnParametersSet();
         var task = OnParametersSetAsync();

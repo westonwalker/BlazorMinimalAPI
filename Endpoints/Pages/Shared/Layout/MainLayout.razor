@@ -11,9 +11,11 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/htmx.org/dist/ext/preload.js"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/remove-me.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
-<body hx-boost="true" hx-ext="preload">
+<body hx-boost="true" hx-ext="preload, remove-me">
     <div class="bg-gray-100 flex flex-col h-screen">
         <div class="w-full bg-white px-12 py-4">
             <div class="flex justify-between items-center w-full max-w-6xl mx-auto">

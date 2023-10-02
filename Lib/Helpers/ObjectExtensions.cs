@@ -4,7 +4,7 @@ namespace BlazorMinimalApis.Lib.Helpers;
 
 public static class ObjectExtensions
 {
-    public static IDictionary<string, object?> ToDictionary(this object values)
+    public static Dictionary<string, object?> ToDictionary(this object values)
     {
         var dict = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
 

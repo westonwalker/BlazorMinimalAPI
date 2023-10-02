@@ -1,4 +1,7 @@
-﻿@inherits SparkComponentBase
+﻿@inherits XComponentBase
+@code {
+    [Parameter] public List<Contact> Contacts { get; set; } = new();
+}
 
 <div class="bg-white rounded-md shadow overflow-x-auto">
     <table class="w-full whitespace-nowrap">
@@ -41,7 +44,3 @@
         }
     </table>
 </div>
-
-@code {
-    [Parameter] public List<Contact> Contacts { get; set; } = new();
-}

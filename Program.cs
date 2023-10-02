@@ -1,7 +1,6 @@
-using BlazorMinimalApis.Components;
-using BlazorMinimalApis.Components.Pages;
+using BlazorMinimalApis.Endpoints;
 using BlazorMinimalApis.Lib;
-using BlazorMinimalApis.Routes;
+using BlazorMinimalApis.Lib.Session;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Endpoints;
 using Microsoft.AspNetCore.Identity;
@@ -13,7 +12,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddDistributedMemoryCache();
 builder.Services.AddAntiforgery();
+builder.Services.AddTransient<SessionManager>();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSession(options => {
+    options.IdleTimeout = TimeSpan.FromMinutes(1);
+});
 //builder.Services.AddAuthentication<IAuthValidator>();
 //builder.Services.AddAuthorization(new string[] { "Admin", "User" });
 
@@ -29,29 +34,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseSession();
 
-app.MapPageRoutes();
-
-// livewire
-//app.MapPost("/update", ([FromBody] LivewirePayload payload, HttpContext context) =>
-//{
-//    var test = context;
-//    var response = new LivewireResponse();
-
-//    // users goes to /food/create
-//        // livewire gets component and calls render(), returns html
-//    // user submits /food/store
-//        // livewire submits post request to /update with method and data
-//        // livewire gets component, calls method, then render.
-
-//    foreach (var component in payload.components)
-//    {
-//        response.components.Add(new ResponseComponent()
-//        {
-//            snapshot = component.snapshot
-//        });
-//    }
-//    return response;
-//}).DisableAntiforgery();
+app.MapPageEndpoints();
+app.MapApiEndpoints();
 
 app.Run();
