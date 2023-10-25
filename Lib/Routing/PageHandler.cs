@@ -5,6 +5,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Components.Endpoints;
 using System.ComponentModel.DataAnnotations;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace BlazorMinimalApis.Lib.Routing;
 
