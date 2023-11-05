@@ -1,4 +1,6 @@
-﻿namespace BlazorMinimalApis.Endpoints;
+﻿using BlazorMinimalApis.Endpoints.Api.Example;
+
+namespace BlazorMinimalApis.Endpoints;
 
 public static class ApiEndpoints
 {
