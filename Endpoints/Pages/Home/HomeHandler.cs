@@ -9,7 +9,7 @@ namespace BlazorMinimalApis.Endpoints.Pages.Home;
 
 public class HomeHandler : PageHandler
 {
-    public IResult Index(IHttpContextAccessor _httpContext)
+    public IResult Index()
     {
         return Page<Home>();
     }
