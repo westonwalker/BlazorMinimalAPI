@@ -1,9 +1,6 @@
 ﻿using BlazorMinimalApis.Data;
-using BlazorMinimalApis.Lib;
 using BlazorMinimalApis.Lib.Routing;
 using BlazorMinimalApis.Lib.Session;
-using FluentValidation;
-using Microsoft.AspNetCore.Components.Endpoints;
 using Microsoft.AspNetCore.Mvc;
 using Riok.Mapperly.Abstractions;
 using System.ComponentModel.DataAnnotations;

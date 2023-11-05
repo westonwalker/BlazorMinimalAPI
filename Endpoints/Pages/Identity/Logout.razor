@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Authentication.Cookies
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Mvc
+
+@attribute [IgnoreAntiforgeryToken]
+
+@code {
+    [Inject] public IHttpContextAccessor HttpContextAccessor { get; set; }
+    [Inject] public NavigationManager navigationManager { get; set; }
+
+    private HttpContext HttpContext => HttpContextAccessor.HttpContext;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await HttpContext.SignOutAsync("Auth0", new AuthenticationProperties());
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        HttpContext.Session.Clear();
+
+        navigationManager.NavigateTo("/");
+
+        // TODO: This is a hack to get around the fact that the Auth0 logout endpoint doesn't work with htmx
+    }
+}

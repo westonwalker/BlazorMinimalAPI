@@ -20,7 +20,15 @@
         <div class="w-full bg-white px-12 py-4">
             <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
                 <h3 class="text-sm font-medium">Contact Manager</h3>
-                <p class="text-sm">John Doe</p>
+                @if (isAuthenticated)
+                {
+                    <p class="text-sm">@email</p>
+                    <a href="account/logout" class="text-sm font-medium text-blue-500 hover:underline">Logout</a>
+                }
+                else
+                {
+                    <a href="account/login" class="text-sm font-medium text-blue-500 hover:underline">Login</a>
+                }
             </div>
         </div>
         <div class="flex flex-grow py-20 px-12">
@@ -32,3 +40,19 @@
 </body>
 
 </html>
+
+@code
+{
+    [Inject] public IHttpContextAccessor HttpContextAccessor { get; set; }
+    private bool isAuthenticated => HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated;
+
+    private string email => HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(x => x.Type == "name")?.Value;
+
+    protected override async Task OnInitializedAsync()
+    {
+        foreach (var claims in HttpContextAccessor.HttpContext.User.Claims)
+        {
+            Console.WriteLine("Claim: " + claims.Type + " : Value " + claims.Value + " .");
+        }
+    }
+}

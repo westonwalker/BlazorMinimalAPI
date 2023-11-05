@@ -1,16 +1,12 @@
-﻿using BlazorMinimalApis.Endpoints.Api.Example;
-
-namespace BlazorMinimalApis.Endpoints;
+﻿namespace BlazorMinimalApis.Endpoints;
 
 public static class ApiEndpoints
 {
 	public static WebApplication MapApiEndpoints(this WebApplication app)
 	{
-		var api = app.MapGroup("/api");
+		var api = app.MapGroup("/account");
 
-		// maps to /api/example
-		api.MapGet("/example", ExampleHandler.Index);
 
-		return app;
+        return app;
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using BlazorMinimalApis.Endpoints.Pages.Contacts;
 using BlazorMinimalApis.Endpoints.Pages.Home;
+using BlazorMinimalApis.Endpoints.Pages.Identity;
 
 namespace BlazorMinimalApis.Endpoints;
 
@@ -9,6 +10,12 @@ public static class PageEndpoints
     {
         app.MapGet("/", new HomeHandler().Index)
             .WithName("Home");
+
+        app.MapGet("/account/login", new IdentityHandler().Login)
+            .WithName("Identity.Login").AllowAnonymous();
+
+        app.MapGet("/account/logout", new IdentityHandler().Logout)
+            .WithName("Identity.Logout");
 
         app.MapGet("/contacts", new ContactHandler().List)
             .WithName("Contacts");
