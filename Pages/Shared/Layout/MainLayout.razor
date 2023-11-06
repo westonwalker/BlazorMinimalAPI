@@ -23,11 +23,11 @@
                 @if (isAuthenticated)
                 {
                     <p class="text-sm">@email</p>
-                    <a href="account/logout" class="text-sm font-medium text-blue-500 hover:underline">Logout</a>
+                    <a href="account/logout" hx-disable class="text-sm font-medium text-blue-500 hover:underline">Logout</a>
                 }
                 else
                 {
-                    <a href="account/login" class="text-sm font-medium text-blue-500 hover:underline">Login</a>
+                    <a href="account/login" hx-disable class="text-sm font-medium text-blue-500 hover:underline">Login</a>
                 }
             </div>
         </div>
@@ -38,7 +38,6 @@
         </div>
     </div>
 </body>
-
 </html>
 
 @code

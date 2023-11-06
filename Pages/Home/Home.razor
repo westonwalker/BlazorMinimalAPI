@@ -1,0 +1,27 @@
+﻿@using BlazorMinimalApis.Pages.Shared.Layout
+
+@inherits XComponentBase
+
+<PageTitle>Home</PageTitle>
+
+<LayoutView Layout="typeof(MainLayout)">
+	<div class="space-y-4">
+		<h1 class="text-3xl font-bold">
+			Welcome to an Auth0 Boilerplate for .NET8 SSR + HTMX + Minimal APIs
+		</h1>
+		<p>This is a demo on how to use Minimal APIs + Razor Components + HTMX to create dynamic server side rendered apps.</p>
+		<p>
+			You can check out the repo <a class="text-blue-500 hover:underline" href="https://github.com/westonwalker/BlazorMinimalAPI" target="_blank">here</a>
+		</p>
+		<p>
+			Using Minimal APIs and Razor components is possible because of a new class in .NET 8: <span class="font-bold">RazorComponentResult</span>
+		</p>
+		<p>This returns an IResult after initializing a Razor component, making it possible to use Razor components in Minimal APIs.</p>
+		<h3 class="text-lg font-bold">
+			Requirements
+		</h3>
+		<p>
+			Requires .NET 8 RC1 installed.
+		</p>
+	</div>
+</LayoutView>

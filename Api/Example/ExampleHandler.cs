@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
-
-namespace BlazorMinimalApis.Endpoints.Api.Example;
+﻿namespace BlazorMinimalApis.Api.Example;
 
 public class ExampleHandler
 {

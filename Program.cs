@@ -1,4 +1,3 @@
-using BlazorMinimalApis.Endpoints;
 using BlazorMinimalApis.Lib;
 using BlazorMinimalApis.Lib.Session;
 using Microsoft.AspNetCore.Components;
@@ -9,13 +8,13 @@ using System.ComponentModel;
 using Auth0.AspNetCore.Authentication;
 using Azure.Identity;
 using Microsoft.AspNetCore.Authorization;
+using BlazorMinimalApis;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
-
-/*
 // GET SECRETS FROM AZURE KEY VAULT
 
 // Store VaultUri in appsettings.json or Launchsettings as env variable
@@ -36,26 +35,37 @@ builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
     .AddEnvironmentVariables()
     .AddAzureKeyVault(new Uri(vaultUri), auth);
 
-*/
-
 var auth0Domain = builder.Configuration["Auth0:Domain"] ?? throw new ArgumentNullException("Auth0:Domain");
 var auth0ClientId = builder.Configuration["Auth0:ClientId"] ?? throw new ArgumentNullException("Auth0:ClientId");
 var auth0ClientSecret = builder.Configuration["Auth0:ClientSecret"] ?? throw new ArgumentNullException("Auth0:ClientSecret");
+
 
 services.AddAuth0WebAppAuthentication(options =>
 {
     options.Domain = auth0Domain;
     options.ClientId = auth0ClientId;
     options.ClientSecret = auth0ClientSecret;
+
+    options.OpenIdConnectEvents = new OpenIdConnectEvents
+    {
+        OnRedirectToIdentityProviderForSignOut = context =>
+        {
+            context.Response.Redirect($"https://{auth0Domain}/v2/logout?client_id={auth0ClientId}&returnTo={context.Request.Scheme}://{context.Request.Host}/");
+            context.HandleResponse();
+
+            return Task.CompletedTask;
+        }
+    };
 });
 
 services.AddAuthorization(options =>
 {
-    options.FallbackPolicy = new AuthorizationPolicyBuilder()
-        .RequireAuthenticatedUser()
-        .Build();
+    /*
+        options.FallbackPolicy = new AuthorizationPolicyBuilder()
+            .RequireAuthenticatedUser()
+            .Build();
+    */
 });
-
 
 // Add services to the container.
 builder.Services.AddRazorComponents();
@@ -65,7 +75,6 @@ builder.Services.AddAntiforgery();
 builder.Services.AddTransient<SessionManager>();
 builder.Services.AddSession(options => {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
-    options.Cookie.HttpOnly = true;
     options.Cookie.SameSite = SameSiteMode.Strict;
 });
 
@@ -81,11 +90,13 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseAntiforgery();
 app.UseSession();
 
+app.MapIdentityEndpoints();
 app.MapPageEndpoints();
 app.MapApiEndpoints();
 

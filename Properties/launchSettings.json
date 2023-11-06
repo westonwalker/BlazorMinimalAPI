@@ -24,6 +24,7 @@
         "launchBrowser": true,
         "applicationUrl": "https://localhost:7063;http://localhost:5194",
         "environmentVariables": {
+          "VaultUri": "https://kvmunichaindev.vault.azure.net/",
           "ASPNETCORE_ENVIRONMENT": "Development"
         }
       },
