@@ -1,0 +1,25 @@
+﻿@inherits XComponentBase
+@code {
+	[Parameter]
+	public List<Contact> Contacts { get; set; } = new();
+}
+
+<PageTitle>Contacts</PageTitle>
+
+<LayoutView Layout="typeof(MainLayout)">
+	<h1 class="mb-8 text-3xl font-bold">
+		Contacts
+	</h1>
+	<div class="flex items-center justify-between mb-6">
+		<div class="">
+			<input type="text" class="relative px-6 py-3 w-full rounded shadow focus:shadow-outline border-none" name="ContactSearch" id="ContactSearch" placeholder="Search..." hx-get="/contacts/search" hx-target="#contact-list" hx-trigger="keyup delay:500ms changed" />
+		</div>
+		<a class="px-4 py-3 font-medium rounded bg-blue-500 hover:bg-blue-600 text-white transition" href="@Link.GetPathByName("Contacts.Create")" preload>Add contact</a>
+	</div>
+
+	<div>
+		<div id="contact-list">
+			<ContactsTablePartial Contacts="Contacts" />
+		</div>
+	</div>
+</LayoutView>

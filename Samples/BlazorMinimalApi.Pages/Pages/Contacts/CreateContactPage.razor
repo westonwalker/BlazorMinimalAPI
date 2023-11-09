@@ -1,0 +1,66 @@
+﻿@inherits XComponentBase
+@code {
+    [Parameter]
+    public CreateContact.CreateContactForm Form { get; set; } = new();
+}
+
+<PageTitle>Add contacts</PageTitle>
+
+<LayoutView Layout="typeof(MainLayout)">
+    <h1 class="mb-8 text-3xl font-bold">
+
+        <a preload class="text-blue-500 hover:text-blue-600" href="@Link.GetPathByName("Contacts")">
+            Contacts
+        </a>
+
+        <span class="text-blue-500 font-medium">/</span>
+        Create
+    </h1>
+
+    <FlashMessages />
+
+    <div class="max-w-3xl bg-white rounded-md shadow overflow-hidden">
+        <form method="post" action="@Link.GetPathByName("Contacts.Store")" autocomplete="off">
+            <div class="flex flex-wrap -mb-8 -mr-6 p-8">
+                <div class="pb-8 pr-6 w-full lg:w-1/2 space-y-2">
+                    <label class="" for="Name">Name</label>
+                    <input type="text" id="name" name="Name" value="@Form.Name" class="relative px-6 py-3 w-full rounded border-gray-300">
+                    @if (HasError(() => Form.Name))
+                    {
+                        <div style="color: red;">@Message</div>
+                    }
+                </div>
+                <div class="pb-8 pr-6 w-full lg:w-1/2 space-y-2">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="Email" value="@Form.Email" class="relative px-6 py-3 w-full rounded border-gray-300">
+                    @if (HasError(() => Form.Email))
+                    {
+                        <div style="color: red;">@Message</div>
+                    }
+                </div>
+                <div class="pb-8 pr-6 w-full lg:w-1/2 space-y-2">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="City" value="@Form.City" class="relative px-6 py-3 w-full rounded border-gray-300">
+                    @if (HasError(() => Form.City))
+                    {
+                        <div style="color: red;">@Message</div>
+                    }
+                </div>
+                <div class="pb-8 pr-6 w-full lg:w-1/2 space-y-2">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="Phone" value="@Form.Phone" class="relative px-6 py-3 w-full rounded border-gray-300">
+                    @if (HasError(() => Form.Phone))
+                    {
+                        <div style="color: red;">@Message</div>
+                    }
+                </div>
+            </div>
+            <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
+                <button class="px-4 py-2 font-medium rounded bg-blue-500 hover:bg-blue-600 text-white transition" type="submit">
+                    Create Contact
+                </button>
+            </div>
+            <AntiforgeryToken />
+        </form>
+    </div>
+</LayoutView>

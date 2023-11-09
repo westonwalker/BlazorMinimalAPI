@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>BlazorMinimalApis.Pages</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Riok.Mapperly" Version="3.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Lib\Views\EmptyLayout.razor" />
+    <_ContentIncludedByDefault Remove="Lib\Views\PageComponent.razor" />
+    <_ContentIncludedByDefault Remove="Lib\Views\XLayout.razor" />
+    <_ContentIncludedByDefault Remove="Endpoints\Pages\Contacts\ContactsSearchTable.razor" />
+    <_ContentIncludedByDefault Remove="Endpoints\Pages\Contacts\Create.razor" />
+    <_ContentIncludedByDefault Remove="Endpoints\Pages\Contacts\Edit.razor" />
+    <_ContentIncludedByDefault Remove="Endpoints\Pages\Contacts\List.razor" />
+    <_ContentIncludedByDefault Remove="Endpoints\Pages\Home\Home.razor" />
+    <_ContentIncludedByDefault Remove="Endpoints\Pages\Home\RandomNumber.razor" />
+    <_ContentIncludedByDefault Remove="Endpoints\Pages\Shared\FlashMessages.razor" />
+    <_ContentIncludedByDefault Remove="Endpoints\Pages\Shared\Layout\MainLayout.razor" />
+    <_ContentIncludedByDefault Remove="Endpoints\Pages\_Imports.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BlazorMinimalApis\BlazorMinimalApis.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Pages\Shared\FlashMessages.razor" />
+    <AdditionalFiles Include="Pages\Shared\Layout\MainLayout.razor" />
+    <AdditionalFiles Include="Pages\_Imports.razor" />
+  </ItemGroup>
+
+</Project>
