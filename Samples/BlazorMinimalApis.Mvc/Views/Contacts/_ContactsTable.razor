@@ -1,0 +1,46 @@
+﻿@inherits XComponentBase
+@code {
+    [Parameter] public List<Contact> Contacts { get; set; } = new();
+}
+
+<div class="bg-white rounded-md shadow overflow-x-auto">
+    <table class="w-full whitespace-nowrap">
+        <tr class="text-left font-bold">
+            <th class="pb-4 pt-6 px-6 w-1/4">Name</th>
+            <th class="pb-4 pt-6 px-6 w-1/4">Email</th>
+            <th class="pb-4 pt-6 px-6 w-1/4">City</th>
+            <th class="pb-4 pt-6 px-6 w-1/4">Phone</th>
+        </tr>
+        @if (Contacts.Count <= 0)
+        {
+            <tr class="hover:bg-gray-100 focus-within:bg-gray-100">
+                <td class="px-6 py-4 border-t" colspan="4">No contacts with that name found.</td>
+            </tr>
+        }
+        @foreach (var contact in Contacts)
+        {
+        <tr class="hover:bg-gray-100 focus-within:bg-gray-100">
+            <td class="border-t">
+                    <a class="flex items-center px-6 py-4 focus:text-indigo-500" href="@Link.GetPathByName("Contacts.Edit", new { id = contact.Id} )">
+                    @contact.Name
+                </a>
+            </td>
+            <td class="border-t">
+                    <a class="flex items-center px-6 py-4 focus:text-indigo-500" href="@Link.GetPathByName("Contacts.Edit", new { id = contact.Id} )">
+                    @contact.Email
+                </a>
+            </td>
+            <td class="border-t">
+                    <a class="flex items-center px-6 py-4 focus:text-indigo-500" href="@Link.GetPathByName("Contacts.Edit", new { id = contact.Id} )">
+                    @contact.City
+                </a>
+            </td>
+            <td class="border-t">
+                    <a class="flex items-center px-6 py-4 focus:text-indigo-500" href="@Link.GetPathByName("Contacts.Edit", new { id = contact.Id} )">
+                    @contact.Phone
+                </a>
+            </td>
+        </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,61 @@
+﻿@inherits XComponentBase
+
+<PageTitle>Home</PageTitle>
+
+<LayoutView Layout="typeof(MainLayout)">
+	<div class="space-y-4">
+		<h1 class="text-3xl font-bold">
+			Welcome to the contact manager
+		</h1>
+		<p>This is a demo on how to use Minimal APIs + Razor Components + HTMX to create dynamic server side rendered apps.</p>
+		<a href="/contacts" class="text-blue-500 hover:underline">Explore the crud example</a>
+		<p>
+			You can check out the repo <a class="text-blue-500 hover:underline" href="https://github.com/westonwalker/BlazorMinimalAPI" target="_blank">here</a>
+		</p>
+		<p>
+			Using Minimal APIs and Razor components is possible because of a new class in .NET 8: <span class="font-bold">RazorComponentResult</span>
+		</p>
+		<p>This returns an IResult after initializing a Razor component, making it possible to use Razor components in Minimal APIs.</p>
+		<h3 class="text-lg font-bold">
+			Requirements
+		</h3>
+		<p>
+			Requires .NET 8 RC1 installed.
+		</p>
+		<h2 class="text-xl font-bold">
+			Partial page reload on navigation with hx-boost
+		</h2>
+		<p>
+			The HTMX attribute hx-boost turns internal links into ajax calls. This speeds up site speed since there are no full page reloads. You can opt in and out of this behavior on a link by link basis.
+		</p>
+		<p>
+			This app uses hx-boost on the body tag, turning on this functionality for all links.
+		</p>
+		<h2 class="text-xl font-bold">
+			Get and Post requests with hx-get and hx-post
+		</h2>
+		<p>
+			The HTMX attributes hx-get and hx-post sets up ajax calls to endpoints and swaps html on the page with what was returned.
+		</p>
+		<p>
+			This is useful for submitting forms, searching tables, and modifying the dom from a user interaction on the page.
+		</p>
+		<h2 class="text-xl font-bold">
+			Polling
+		</h2>
+		<p>
+			The HTMX attribute hx-trigger can be used to poll the server. This can setup ajax calls to endpoints at an interval and swap html on the page with what was returned.
+		</p>
+		<p>
+			Below is random number generator.
+		</p>
+		<div hx-get="/random-number" hx-trigger="every 2s" hx-target="#random-number">
+			<div id="random-number">
+				<RandomNumber />
+			</div>
+		</div>
+		<p>
+			HTMX calls <span class="font-medium">/random-number</span> every 2s and replaces the html with the html returned by the endpoint.
+		</p>
+	</div>
+</LayoutView>

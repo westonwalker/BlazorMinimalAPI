@@ -20,7 +20,8 @@ public class XComponentBase : IComponent
     [Inject] public LinkGenerator Link { get; set; }
     [Inject] public NavigationManager Navigation { get; set; }
     [Inject] IHttpContextAccessor HttpContextAccessor { get; set; }
-    [Parameter] public List<ValidationError>? Errors { get; set; } = new();
+    public List<ValidationError>? Errors { get; set; } = new();
+    [CascadingParameter] PageState PageState { get; set; }
     SessionManager SessionManager;
     public bool HasErrors = false;
     protected string Message { get; set; }
@@ -265,6 +266,7 @@ public class XComponentBase : IComponent
 
     private Task CallOnParametersSetAsync()
     {
+        Errors = PageState.Errors;
         if (Errors != null && Errors.Count > 0)
         {
             HasErrors = true;

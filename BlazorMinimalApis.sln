@@ -5,9 +5,9 @@ VisualStudioVersion = 17.8.34112.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMinimalApis.Pages", "Samples\BlazorMinimalApi.Pages\BlazorMinimalApis.Pages.csproj", "{4A709DBC-7C6D-418D-86D4-19098947B792}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMinimalApis", "BlazorMinimalApis\BlazorMinimalApis.csproj", "{76133159-61DF-409C-AF01-16D3F94A4CED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMinimalApis", "BlazorMinimalApis\BlazorMinimalApis.csproj", "{76133159-61DF-409C-AF01-16D3F94A4CED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMinimalApis.Mvc", "Samples\BlazorMinimalApis.Mvc\BlazorMinimalApis.Mvc.csproj", "{A08B95A6-185E-4FAE-8A80-0FAE8ABB3BC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMinimalApis.Mvc", "Samples\BlazorMinimalApis.Mvc\BlazorMinimalApis.Mvc.csproj", "{A08B95A6-185E-4FAE-8A80-0FAE8ABB3BC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

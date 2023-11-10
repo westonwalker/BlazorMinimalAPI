@@ -1,9 +1,4 @@
 using BlazorMinimalApis.Lib.Session;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Endpoints;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel;
 using BlazorMinimalApis.Pages.Lib;
 
 var builder = WebApplication.CreateBuilder(args);

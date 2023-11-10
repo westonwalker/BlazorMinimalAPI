@@ -1,7 +1,8 @@
-﻿@using Htmx;
-@using Microsoft.AspNetCore.Components.Authorization
+﻿@using BlazorMinimalApis.Lib.Validation
 
-<DynamicComponent Type="ComponentType" Parameters="ComponentParameters" />
+<CascadingValue Value="@PageState">
+    <DynamicComponent Type="ComponentType" Parameters="ComponentParameters" />
+</CascadingValue>
 
 @code {
     [Parameter, EditorRequired] 
@@ -10,7 +11,13 @@
     [Parameter, EditorRequired]
     public Dictionary<string, object?> ComponentParameters { get; set; }
 
+    [Parameter]
+    public List<ValidationError> Errors { get; set; } = new();
+
+    private PageState PageState { get; set; } = new();
+
     protected override async Task OnParametersSetAsync()
     {
+        PageState.Errors = Errors;
     }
 }

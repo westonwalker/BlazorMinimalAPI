@@ -1,0 +1,33 @@
+﻿@inherits LayoutComponentBase
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <base href="/" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <HeadOutlet />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/remove-me.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<body hx-boost="true" hx-ext="remove-me">
+    <div class="bg-gray-100 flex flex-col h-screen">
+        <div class="w-full bg-white px-12 py-4">
+            <div class="flex justify-between items-center w-full max-w-6xl mx-auto">
+                <h3 class="text-sm font-medium">Contact Manager</h3>
+                <p class="text-sm">John Doe</p>
+            </div>
+        </div>
+        <div class="flex flex-grow py-20 px-12">
+            <div class="max-w-6xl mx-auto  w-full">
+                @Body
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

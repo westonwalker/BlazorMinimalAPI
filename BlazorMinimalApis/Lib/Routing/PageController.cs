@@ -15,13 +15,13 @@ public abstract class PageController
     public IResult Page<TComponent>(object data)
     {
         var componentData = data.ToDictionary();
+        var errors = new List<ValidationError>();
         if (Validation.HasErrors && Validation.Errors.Count > 0)
         {
-            componentData.Add("Errors", Validation.Errors);
+            errors = Validation.Errors;
         }
         var componentType = typeof(TComponent);
-        return new RazorComponentResult(typeof(PageComponent), new { ComponentType = componentType, ComponentParameters = componentData });
-        // return new RazorComponentResult(typeof(TComponent), componentData);
+        return new RazorComponentResult(typeof(PageComponent), new { ComponentType = componentType, ComponentParameters = componentData, Errors = errors });
     }
 
     public IResult Page<TComponent>()

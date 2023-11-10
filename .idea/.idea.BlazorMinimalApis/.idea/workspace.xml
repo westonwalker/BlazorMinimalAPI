@@ -17,40 +17,8 @@
   <component name="ChangeListManager">
     <list default="true" id="734538a6-82db-4343-9173-39b6ca7bbc40" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorMinimalApis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorMinimalApis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorMinimalApis.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorMinimalApis.sln" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorMinimalApis.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Database.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/Api/Example/ExampleHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/ApiEndpoints.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/PageEndpoints.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/Pages/Contacts/ContactHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/Pages/Contacts/ContactsSearchTable.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/Pages/Contacts/Create.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/Pages/Contacts/Edit.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/Pages/Contacts/List.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/Pages/Home/Home.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/Pages/Home/HomeHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/Pages/Home/RandomNumber.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/Pages/Shared/FlashMessages.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/Pages/Shared/Layout/MainLayout.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/Pages/Shared/Layout/MainLayout.razor.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endpoints/Pages/_Imports.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Helpers/ObjectExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Routing/ApiHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Routing/PageHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Session/SessionManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Validation/ValidationError.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Views/EmptyLayout.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Views/PageComponent.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Views/PageState .cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Views/XComponentBase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Views/XLayout.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorMinimalApis/Lib/Views/PageComponent.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorMinimalApis/Lib/Views/PageComponent.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorMinimalApis/Lib/Views/XComponentBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorMinimalApis/Lib/Views/XComponentBase.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +207,8 @@
       <workItem from="1696010040405" duration="1000" />
       <workItem from="1699539911437" duration="2000" />
       <workItem from="1699540217432" duration="983000" />
-      <workItem from="1699541266688" duration="2128000" />
+      <workItem from="1699541266688" duration="2414000" />
+      <workItem from="1699548322905" duration="918000" />
     </task>
     <servers />
   </component>
