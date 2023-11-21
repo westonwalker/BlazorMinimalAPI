@@ -11,6 +11,7 @@ builder.Services.AddAntiforgery();
 builder.Services.AddTransient<SessionManager>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession(options => {
+	options.Cookie.Name = ".blazorminimalapi.mvc";
 	options.IdleTimeout = TimeSpan.FromMinutes(1);
 });
 //builder.Services.AddAuthentication<IAuthValidator>();

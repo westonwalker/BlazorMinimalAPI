@@ -16,9 +16,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="734538a6-82db-4343-9173-39b6ca7bbc40" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorMinimalApis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorMinimalApis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorMinimalApis/Lib/Views/PageComponent.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorMinimalApis/Lib/Views/PageComponent.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorMinimalApis/Lib/Views/XComponentBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorMinimalApis/Lib/Views/XComponentBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.json" beforeDir="false" afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,6 +207,7 @@
       <workItem from="1699540217432" duration="983000" />
       <workItem from="1699541266688" duration="2414000" />
       <workItem from="1699548322905" duration="918000" />
+      <workItem from="1700602273184" duration="123000" />
     </task>
     <servers />
   </component>
