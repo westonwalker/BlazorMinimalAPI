@@ -8,7 +8,7 @@ using Riok.Mapperly.Abstractions;
 
 namespace BlazorMinimalApis.Pages.Pages.Contacts;
 
-public class CreateContact : PageController, IRouteDefinition
+public class CreateContact : XController, IRouteDefinition
 {
 	public void Map(WebApplication app)
 	{
@@ -21,7 +21,7 @@ public class CreateContact : PageController, IRouteDefinition
 	public IResult Create()
 	{
 		var model = new { Form = new CreateContactForm() };
-		return Page<CreateContactPage>(model);
+		return View<CreateContactPage>(model);
 	}
 
 	public IResult Store([FromForm] CreateContactForm form, SessionManager Session)
@@ -29,7 +29,7 @@ public class CreateContact : PageController, IRouteDefinition
 		if (Validate(form).HasErrors)
 		{
 			var model = new { Form = form };
-			return Page<CreateContactPage>(model);
+			return View<CreateContactPage>(model);
 		}
 		var newContact = new CreateContactMapper().FormToContact(form);
 		newContact.Id = Database.Contacts.Count() + 1;

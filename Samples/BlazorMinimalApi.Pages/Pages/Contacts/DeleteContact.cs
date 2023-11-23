@@ -4,7 +4,7 @@ using BlazorMinimalApis.Pages.Lib;
 
 namespace BlazorMinimalApis.Pages.Pages.Contacts;
 
-public class DeleteContact : PageController, IRouteDefinition
+public class DeleteContact : XController, IRouteDefinition
 {
 	public void Map(WebApplication app)
 	{

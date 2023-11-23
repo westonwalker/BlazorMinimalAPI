@@ -9,12 +9,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BlazorMinimalApis.Mvc.Controllers;
 
-public class ContactController : PageController
+public class ContactController : XController
 {
 	public IResult List(HttpContext context)
 	{
 		var parameters = new { Contacts = Database.Contacts };
-		return Page<List>(parameters);
+		return View<List>(parameters);
 	}
 
 	public IResult Search([FromQuery] string ContactSearch)
@@ -23,13 +23,13 @@ public class ContactController : PageController
 			.Where(x => x.Name.Contains(ContactSearch, StringComparison.OrdinalIgnoreCase))
 			.ToList();
 		var model = new { Contacts = contacts };
-		return Page<_ContactsTable>(model);
+		return View<_ContactsTable>(model);
 	}
 
 	public IResult Create()
 	{
 		var model = new { Form = new CreateContactForm() };
-		return Page<Create>(model);
+		return View<Create>(model);
 	}
 
 	public IResult Store([FromForm] CreateContactForm form, SessionManager Session)
@@ -37,7 +37,7 @@ public class ContactController : PageController
 		if (Validate(form).HasErrors)
 		{
 			var model = new { Form = form };
-			return Page<Create>(model);
+			return View<Create>(model);
 		}
 		var newContact = new CreateContactMapper().FormToContact(form);
 		newContact.Id = Database.Contacts.Count() + 1;
@@ -53,7 +53,7 @@ public class ContactController : PageController
 		var record = Database.Contacts.Where(x => x.Id == id).First();
 		var form = new EditContactMapper().ContactToForm(record);
 		var model = new { Form = form };
-		return Page<Edit>(model);
+		return View<Edit>(model);
 	}
 
 	public IResult Update(int id, [FromForm] EditContactForm form)
@@ -62,7 +62,7 @@ public class ContactController : PageController
 		if (validation.HasErrors)
 		{
 			var model = new { Form = form };
-			return Page<Edit>(model);
+			return View<Edit>(model);
 		}
 		var oldContact = Database.Contacts.First(x => x.Id == id);
 		var newContact = new EditContactMapper().FormToContact(form);

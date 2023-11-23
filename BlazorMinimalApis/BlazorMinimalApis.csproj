@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Lib\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <AdditionalFiles Include="Lib\Views\EmptyLayout.razor" />
       <AdditionalFiles Include="Lib\Views\PageComponent.razor" />
       <AdditionalFiles Include="Lib\Views\XLayout.razor" />

@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace BlazorMinimalApis.Lib.Routing;
 
-public abstract class PageController
+public abstract class XController
 {
     public ValidationResponse Validation = new();
 
-    public IResult Page<TComponent>(object data)
+    public IResult View<TComponent>(object data)
     {
         var componentData = data.ToDictionary();
         var errors = new List<ValidationError>();
@@ -24,9 +24,9 @@ public abstract class PageController
         return new RazorComponentResult(typeof(PageComponent), new { ComponentType = componentType, ComponentParameters = componentData, Errors = errors });
     }
 
-    public IResult Page<TComponent>()
+    public IResult View<TComponent>()
     {
-        return Page<TComponent>(new { });
+        return View<TComponent>(new { });
     }
 
     public ValidationResponse Validate<TData>(TData data)
@@ -123,7 +123,7 @@ public abstract class PageController
         return Results.Redirect(url);
     }
 
-    public PageController Flash(string key, string message)
+    public XController Flash(string key, string message)
     {
         return this;
     }

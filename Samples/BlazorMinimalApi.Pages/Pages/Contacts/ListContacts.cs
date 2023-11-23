@@ -4,7 +4,7 @@ using BlazorMinimalApis.Pages.Lib;
 
 namespace BlazorMinimalApis.Pages.Pages.Contacts;
 
-public class ListContacts : PageController, IRouteDefinition
+public class ListContacts : XController, IRouteDefinition
 {
 	public void Map(WebApplication app)
 	{
@@ -15,6 +15,6 @@ public class ListContacts : PageController, IRouteDefinition
 	public IResult List(HttpContext context)
 	{
 		var parameters = new { Contacts = Database.Contacts };
-		return Page<ListContactsPage>(parameters);
+		return View<ListContactsPage>(parameters);
 	}
 }

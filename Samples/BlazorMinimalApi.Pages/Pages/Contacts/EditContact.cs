@@ -7,7 +7,7 @@ using Riok.Mapperly.Abstractions;
 
 namespace BlazorMinimalApis.Pages.Pages.Contacts;
 
-public class EditContact : PageController, IRouteDefinition
+public class EditContact : XController, IRouteDefinition
 {
 	public void Map(WebApplication app)
 	{
@@ -22,7 +22,7 @@ public class EditContact : PageController, IRouteDefinition
 		var record = Database.Contacts.Where(x => x.Id == id).First();
 		var form = new EditContactMapper().ContactToForm(record);
 		var model = new { Form = form };
-		return Page<EditContactPage>(model);
+		return View<EditContactPage>(model);
 	}
 
 	public IResult Update(int id, [FromForm] EditContactForm form)
@@ -31,7 +31,7 @@ public class EditContact : PageController, IRouteDefinition
 		if (validation.HasErrors)
 		{
 			var model = new { Form = form };
-			return Page<EditContactPage>(model);
+			return View<EditContactPage>(model);
 		}
 		var oldContact = Database.Contacts.First(x => x.Id == id);
 		var newContact = new EditContactMapper().FormToContact(form);
