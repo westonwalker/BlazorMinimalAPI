@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorMinimalApis.Pages.Pages.Contacts;
 
-public class ContactsTable : XController, IRouteDefinition
+public class ContactsTable : XPage
 {
-	public void Map(WebApplication app)
+	public override void Map(WebApplication app)
 	{
 		app.MapGet("/contacts/search", Search)
 			.WithName("Contacts.Search");
@@ -19,6 +19,6 @@ public class ContactsTable : XController, IRouteDefinition
 			.Where(x => x.Name.Contains(ContactSearch, StringComparison.OrdinalIgnoreCase))
 			.ToList();
 		var model = new { Contacts = contacts };
-		return View<ContactsTablePartial>(model);
+		return Page<ContactsTablePartial>(model);
 	}
 }

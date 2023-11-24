@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using BlazorMinimalApis.Lib.Routing;
+using Microsoft.AspNetCore.Builder;
 
 namespace BlazorMinimalApis.Pages.Lib;
 
@@ -8,10 +9,10 @@ public static class RegisterRoutesExtension
 	{
 		var endpointDefinitions = typeof(Program).Assembly
 			.GetTypes()
-			.Where(t => t.IsAssignableTo(typeof(IRouteDefinition))
+			.Where(t => t.IsAssignableTo(typeof(XPage))
 			            && !t.IsAbstract && !t.IsInterface)
 			.Select(Activator.CreateInstance)
-			.Cast<IRouteDefinition>();
+			.Cast<XPage>();
 
 		foreach (var endpointDef in endpointDefinitions)
 		{

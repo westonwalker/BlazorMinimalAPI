@@ -3,9 +3,9 @@ using BlazorMinimalApis.Pages.Lib;
 
 namespace BlazorMinimalApis.Pages.Pages.Home;
 
-public class Home : XController, IRouteDefinition
+public class Home : XPage 
 {
-    public void Map(WebApplication app)
+    public override void Map(WebApplication app)
     {
         app.MapGet("/", Index);
         app.MapGet("/random-number", RandomNumber);
@@ -13,13 +13,13 @@ public class Home : XController, IRouteDefinition
     
     public IResult Index()
     {
-        return View<HomePage>();
+        return Page<HomePage>();
     }
 
     public IResult RandomNumber()
     {
         Random rnd = new Random();
         var num = rnd.Next();
-        return View<RandomNumberPartial>(new { Num = num });
+        return Page<RandomNumberPartial>(new { Num = num });
     }
 }

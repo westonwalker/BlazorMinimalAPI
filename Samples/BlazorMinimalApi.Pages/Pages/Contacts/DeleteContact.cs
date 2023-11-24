@@ -4,9 +4,9 @@ using BlazorMinimalApis.Pages.Lib;
 
 namespace BlazorMinimalApis.Pages.Pages.Contacts;
 
-public class DeleteContact : XController, IRouteDefinition
+public class DeleteContact : XPage
 {
-	public void Map(WebApplication app)
+	public override void Map(WebApplication app)
 	{
 		app.MapGet("/contacts/{id}/delete", Delete)
 			.WithName("Contacts.Delete");
