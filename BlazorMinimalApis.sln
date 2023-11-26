@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMinimalApis", "Blazor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMinimalApis.Mvc", "Samples\BlazorMinimalApis.Mvc\BlazorMinimalApis.Mvc.csproj", "{A08B95A6-185E-4FAE-8A80-0FAE8ABB3BC0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMinimalApi.Features", "Samples\BlazorMinimalApi.Features\BlazorMinimalApi.Features.csproj", "{5EF32691-BD61-47A6-AF8F-61A91B743016}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A08B95A6-185E-4FAE-8A80-0FAE8ABB3BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A08B95A6-185E-4FAE-8A80-0FAE8ABB3BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A08B95A6-185E-4FAE-8A80-0FAE8ABB3BC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EF32691-BD61-47A6-AF8F-61A91B743016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EF32691-BD61-47A6-AF8F-61A91B743016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EF32691-BD61-47A6-AF8F-61A91B743016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EF32691-BD61-47A6-AF8F-61A91B743016}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
