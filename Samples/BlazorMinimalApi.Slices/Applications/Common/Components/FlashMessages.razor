@@ -1,0 +1,8 @@
+﻿@inherits XComponentBase
+
+@if (Session().HasKey("success"))
+{
+    <div class="my-6 p-6 bg-green-100 font-medium text-green-700 border border-green-700 rounded max-w-3xl">
+        @Session().GetFlash("success")
+    </div>
+}
