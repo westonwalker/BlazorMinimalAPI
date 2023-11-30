@@ -1,11 +1,22 @@
 ﻿@using BlazorMinimalApis.Lib.Validation
+@using System.Collections.Concurrent
+@using System.Reflection
 
 <CascadingValue Value="@PageState">
-    <DynamicComponent Type="ComponentType" Parameters="ComponentParameters" />
+    @if (Layout != null)
+    {
+        <LayoutView Layout="Layout">
+            <DynamicComponent Type="ComponentType" Parameters="ComponentParameters" />
+        </LayoutView>
+    }
+    else
+    {
+        <DynamicComponent Type="ComponentType" Parameters="ComponentParameters" />
+    }
 </CascadingValue>
 
 @code {
-    [Parameter, EditorRequired] 
+    [Parameter, EditorRequired]
     public Type ComponentType { get; set; }
 
     [Parameter, EditorRequired]
@@ -16,8 +27,13 @@
 
     private PageState PageState { get; set; } = new();
 
+    private static readonly ConcurrentDictionary<Type, Type?> _layoutAttributeCache = new();
+
+    private Type? Layout = null;
+
     protected override async Task OnParametersSetAsync()
     {
         PageState.Errors = Errors;
+        Layout = ComponentType.GetCustomAttribute<LayoutAttribute>()?.LayoutType;
     }
 }

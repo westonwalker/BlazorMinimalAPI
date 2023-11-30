@@ -6,13 +6,7 @@ namespace BlazorMinimalApis.Pages.Pages.Contacts;
 
 public class DeleteContact : XPage
 {
-	public override void Map(WebApplication app)
-	{
-		app.MapGet("/contacts/{id}/delete", Delete)
-			.WithName("Contacts.Delete");
-	}
-
-	public IResult Delete(int id)
+	public IResult Get(int id)
 	{
 		var contact = Database.Contacts.First(x => x.Id == id);
 		Database.Contacts.Remove(contact);

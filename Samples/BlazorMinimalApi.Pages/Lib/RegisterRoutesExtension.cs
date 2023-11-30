@@ -9,10 +9,10 @@ public static class RegisterRoutesExtension
 	{
 		var endpointDefinitions = typeof(Program).Assembly
 			.GetTypes()
-			.Where(t => t.IsAssignableTo(typeof(XPage))
+			.Where(t => t.IsAssignableTo(typeof(IRouteDefinition))
 			            && !t.IsAbstract && !t.IsInterface)
 			.Select(Activator.CreateInstance)
-			.Cast<XPage>();
+			.Cast<IRouteDefinition>();
 
 		foreach (var endpointDef in endpointDefinitions)
 		{

@@ -13,7 +13,18 @@ public abstract class XPage
 {
 	public ValidationResponse Validation = new();
 
-	public abstract void Map(WebApplication app);
+	public IResult Page<TComponent>()
+	{
+		var data = new { Model = this };
+		var componentData = data.ToDictionary();
+		var errors = new List<ValidationError>();
+		if (Validation.HasErrors && Validation.Errors.Count > 0)
+		{
+			errors = Validation.Errors;
+		}
+		var componentType = typeof(TComponent);
+		return new RazorComponentResult(typeof(PageComponent), new { ComponentType = componentType, ComponentParameters = componentData, Errors = errors });
+	}
 
 	public IResult Page<TComponent>(object data)
 	{
@@ -25,11 +36,6 @@ public abstract class XPage
 		}
 		var componentType = typeof(TComponent);
 		return new RazorComponentResult(typeof(PageComponent), new { ComponentType = componentType, ComponentParameters = componentData, Errors = errors });
-	}
-
-	public IResult Page<TComponent>()
-	{
-		return Page<TComponent>(new { });
 	}
 
 	public ValidationResponse Validate<TData>(TData data)

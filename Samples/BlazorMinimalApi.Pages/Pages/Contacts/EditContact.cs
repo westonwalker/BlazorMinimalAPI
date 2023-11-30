@@ -9,29 +9,25 @@ namespace BlazorMinimalApis.Pages.Pages.Contacts;
 
 public class EditContact : XPage
 {
-	public override void Map(WebApplication app)
-	{
-		app.MapGet("/contacts/{id:int}/edit", Edit)
-			.WithName("Contacts.Edit");
-		app.MapPost("/contacts/{id:int}/edit", Update)
-			.WithName("Contacts.Update");
-	}
+	public EditContactForm Form = new();
+	public int Id;
 
-	public IResult Edit(int id)
+	public IResult Get(int id)
 	{
 		var record = Database.Contacts.Where(x => x.Id == id).First();
-		var form = new EditContactMapper().ContactToForm(record);
-		var model = new { Form = form };
-		return Page<EditContactPage>(model);
+		Form = new EditContactMapper().ContactToForm(record);
+		Id = id;
+		return Page<_EditContact>();
 	}
 
-	public IResult Update(int id, [FromForm] EditContactForm form)
+	public IResult Post(int id, [FromForm] EditContactForm form)
 	{
 		var validation = Validate(form);
 		if (validation.HasErrors)
 		{
-			var model = new { Form = form };
-			return Page<EditContactPage>(model);
+			Id = id;
+			Form = form;
+			return Page<_EditContact>();
 		}
 		var oldContact = Database.Contacts.First(x => x.Id == id);
 		var newContact = new EditContactMapper().FormToContact(form);
@@ -41,20 +37,19 @@ public class EditContact : XPage
 
 		return Redirect($"/contacts/{newContact.Id}/edit");
 	}
+}
 
-	public class EditContactForm
-	{
-		public int Id { get; set; }
-		[Required] public string Name { get; set; }
-		[Required, EmailAddress] public string Email { get; set; }
-		[Required] public string City { get; set; }
-		[Required, Phone] public string Phone { get; set; }
-	}
+public class EditContactForm
+{
+	[Required] public string Name { get; set; }
+	[Required, EmailAddress] public string Email { get; set; }
+	[Required] public string City { get; set; }
+	[Required, Phone] public string Phone { get; set; }
 }
 
 [Mapper]
 public partial class EditContactMapper
 {
-	public partial EditContact.EditContactForm ContactToForm(Contact contact);
-	public partial Contact FormToContact(EditContact.EditContactForm contact);
+	public partial EditContactForm ContactToForm(Contact contact);
+	public partial Contact FormToContact(EditContactForm contact);
 }

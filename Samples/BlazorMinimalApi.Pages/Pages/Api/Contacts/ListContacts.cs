@@ -6,12 +6,7 @@ namespace BlazorMinimalApis.Pages.Pages.Api.Contacts;
 
 public class ListContacts : XPage
 {
-	public override void Map(WebApplication app)
-	{
-		app.MapGet("/api/contacts", List);
-	}
-	
-	public IResult List()
+	public IResult Get()
 	{
 		var data = new { Contacts = Database.Contacts };
 		return Results.Ok(data);

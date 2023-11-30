@@ -1,20 +1,26 @@
 ﻿using BlazorMinimalApis.Pages.Data;
 using BlazorMinimalApis.Lib.Routing;
 using BlazorMinimalApis.Pages.Lib;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorMinimalApis.Pages.Pages.Contacts;
 
 public class ListContacts : XPage
 {
-	public override void Map(WebApplication app)
+    public List<Contact> Contacts = new();
+
+    public IResult Get(HttpContext context)
 	{
-		app.MapGet("/contacts", List)
-			.WithName("Contacts");
+		Contacts = Database.Contacts;
+		return Page<_ListContacts>();
 	}
-	
-	public IResult List(HttpContext context)
+
+	public IResult GetSearch([FromQuery] string ContactSearch)
 	{
-		var parameters = new { Contacts = Database.Contacts };
-		return Page<ListContactsPage>(parameters);
+		Contacts = Database.Contacts
+			.Where(x => x.Name.Contains(ContactSearch, StringComparison.OrdinalIgnoreCase))
+			.ToList();
+
+		return Page<_SearchContacts>();
 	}
 }
