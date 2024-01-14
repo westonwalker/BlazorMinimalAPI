@@ -7,6 +7,9 @@
     <projectFile profileName="IIS Express">Samples/BlazorMinimalApi.Pages/BlazorMinimalApis.Pages.csproj</projectFile>
     <projectFile profileName="http">Samples/BlazorMinimalApi.Pages/BlazorMinimalApis.Pages.csproj</projectFile>
     <projectFile profileName="https">Samples/BlazorMinimalApi.Pages/BlazorMinimalApis.Pages.csproj</projectFile>
+    <projectFile profileName="IIS Express">Samples/BlazorMinimalApi.Slices/BlazorMinimalApi.Slices.csproj</projectFile>
+    <projectFile profileName="http">Samples/BlazorMinimalApi.Slices/BlazorMinimalApi.Slices.csproj</projectFile>
+    <projectFile profileName="https">Samples/BlazorMinimalApi.Slices/BlazorMinimalApi.Slices.csproj</projectFile>
     <projectFile profileName="IIS Express">Samples/BlazorMinimalApis.Mvc/BlazorMinimalApis.Mvc.csproj</projectFile>
     <projectFile profileName="http">Samples/BlazorMinimalApis.Mvc/BlazorMinimalApis.Mvc.csproj</projectFile>
     <projectFile profileName="https">Samples/BlazorMinimalApis.Mvc/BlazorMinimalApis.Mvc.csproj</projectFile>
@@ -16,7 +19,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="734538a6-82db-4343-9173-39b6ca7bbc40" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/global.json" beforeDir="false" afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorMinimalApis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorMinimalApis/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorMinimalApis/BlazorMinimalApis.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorMinimalApis/BlazorMinimalApis.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Samples/BlazorMinimalApis.Mvc/BlazorMinimalApis.Mvc.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Samples/BlazorMinimalApis.Mvc/BlazorMinimalApis.Mvc.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Samples/BlazorMinimalApis.Mvc/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Samples/BlazorMinimalApis.Mvc/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Samples/BlazorMinimalApis.Mvc/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Samples/BlazorMinimalApis.Mvc/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +32,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/efcore/423b1a0d38036efcefdbf1dfb80955449eae1238/src/EFCore/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -39,25 +49,28 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.BlazorMinimalApis.Mvc: http.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;rambosa-mvc&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Weston\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Weston\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Weston\\AppData\\Local\\Symbols\\src&quot;
+      &quot;C:\\Users\\ryued\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\ryued\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\ryued\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.BlazorMinimalApis.Pages: https">
+  <component name="RunManager" selected=".NET Launch Settings Profile.BlazorMinimalApis.Mvc: http">
     <configuration name="BlazorMinimalApis.Endpoints: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Samples/BlazorMinimalApi.Endpoints/BlazorMinimalApis.Pages.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -208,6 +221,8 @@
       <workItem from="1699541266688" duration="2414000" />
       <workItem from="1699548322905" duration="918000" />
       <workItem from="1700602273184" duration="123000" />
+      <workItem from="1705244756434" duration="1318000" />
+      <workItem from="1705248186878" duration="1855000" />
     </task>
     <servers />
   </component>
@@ -216,5 +231,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
