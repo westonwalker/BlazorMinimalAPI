@@ -1,14 +1,22 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using BlazorMinimalApis.Lib.Routing;
 using BlazorMinimalApis.Mvc.Data;
+using BlazorMinimalApis.Mvc.Views.Contacts;
 using Riok.Mapperly.Abstractions;
 
 namespace BlazorMinimalApis.Mvc.Controllers;
 
 public class PlatoController : XController
 {
+    private readonly RambosaDbContext _dbContext;
+    public PlatoController(RambosaDbContext dbContext)
+    {
+        _dbContext = dbContext;
+    }
     public IResult List(HttpContext context)
     {
+        var parameters = new { Clientes = _dbContext.Clientes.ToList() };
+        return View<List>(parameters);
         /*var parameters = new { Contacts = Database.Contacts };
         return View<List>(parameters);*/
     }
