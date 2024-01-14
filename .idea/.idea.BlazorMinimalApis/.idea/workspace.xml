@@ -20,7 +20,6 @@
   <component name="ChangeListManager">
     <list default="true" id="734538a6-82db-4343-9173-39b6ca7bbc40" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorMinimalApis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorMinimalApis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Samples/BlazorMinimalApis.Mvc/Data/RambosaDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Samples/BlazorMinimalApis.Mvc/Data/RambosaDbContext.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
