@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlazorMinimalApis.Mvc.Data;
 /*
@@ -23,7 +24,9 @@ public class RambosaDbContext : DbContext
 public class Plato
 {
     public int PlatoId { get; set; }
-    public int Precio { get; set; }
+    public int Price { get; set; }
+    [MaxLength(50)]
+    public string Name { get; set; } = null!;
 }
 
 public class Cliente

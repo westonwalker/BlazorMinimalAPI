@@ -24,7 +24,7 @@
             <div class="flex flex-wrap -mb-8 -mr-6 p-8">
                 <div class="pb-8 pr-6 w-full lg:w-1/2 space-y-2">
                     <label class="" for="Name">Name</label>
-                    <input type="text" id="name" name="Name" value="@Form.Name" class="relative px-6 py-3 w-full rounded border-gray-300">
+                    <input type="text" id="Name" name="Name" value="@Form.Name" class="relative px-6 py-3 w-full rounded border-gray-300">
                     @if (HasError(() => Form.Name))
                     {
                         <div style="color: red;">@Message</div>
