@@ -6,16 +6,11 @@ using Riok.Mapperly.Abstractions;
 
 namespace BlazorMinimalApis.Mvc.Controllers;
 
-public class PlatoController : XController
+public class PlatoController(RambosaDbContext dbContext) : XController
 {
-    private readonly RambosaDbContext _dbContext;
-    public PlatoController(RambosaDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
     public IResult List(HttpContext context)
     {
-        var parameters = new { Clientes = _dbContext.Clientes.ToList() };
+        var parameters = new { Clientes = dbContext.Clientes.ToList() };
         return View<List>(parameters);
         /*var parameters = new { Contacts = Database.Contacts };
         return View<List>(parameters);*/
