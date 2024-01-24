@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 .idea/.idea.BlazorMinimalApis/.idea/workspace.xml
 *.xml
+*.xml
