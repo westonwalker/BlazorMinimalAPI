@@ -21,12 +21,16 @@
         {
             <tr class="hover:bg-gray-100 focus-within:bg-gray-100">
                 <td class="border-t">
-                    <a class="flex items-center px-6 py-4 focus:text-indigo-500" href="@Link.GetPathByName("Platos.Edit", new { id = plato.PlatoId} )">
+                    <a class="flex items-center px-6 py-4 focus:text-indigo-500" 
+                       href="@Link.GetPathByName("Platos.Edit", new { id = plato.PlatoId} )"
+                    >
                         @plato.Price
                     </a>
                 </td>
                 <td class="border-t">
-                    <a class="flex items-center px-6 py-4 focus:text-indigo-500" href="@Link.GetPathByName("Platos.Edit", new { id = plato.PlatoId} )">
+                    <a class="flex items-center px-6 py-4 focus:text-indigo-500" 
+                       href="@Link.GetPathByName("Platos.Edit", new { id = plato.PlatoId} )"
+                    >
                         @plato.Name
                     </a>
                 </td>
