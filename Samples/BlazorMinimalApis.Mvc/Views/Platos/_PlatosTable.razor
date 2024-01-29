@@ -1,0 +1,40 @@
+﻿@inherits XComponent
+@code {
+    [Parameter] public List<Plato> Platos { get; set; } = new();
+}
+
+<div class="bg-white rounded-md shadow overflow-x-auto">
+    <table class="w-full whitespace-nowrap">
+        <tr class="text-left font-bold">
+            <th class="pb-4 pt-6 px-6 w-1/4">Name</th>
+            <th class="pb-4 pt-6 px-6 w-1/4">Email</th>
+            <th class="pb-4 pt-6 px-6 w-1/4">City</th>
+            <th class="pb-4 pt-6 px-6 w-1/4">Phone</th>
+        </tr>
+        @if (Platos.Count <= 0)
+        {
+            <tr class="hover:bg-gray-100 focus-within:bg-gray-100">
+                <td class="px-6 py-4 border-t" colspan="4">No hay platos con ese nombre.</td>
+            </tr>
+        }
+        @foreach (var plato in Platos)
+        {
+            <tr class="hover:bg-gray-100 focus-within:bg-gray-100">
+                <td class="border-t">
+                    <a class="flex items-center px-6 py-4 focus:text-indigo-500" 
+                       href="@Link.GetPathByName("Platos.Edit", new { id = plato.PlatoId} )"
+                    >
+                        @plato.Price
+                    </a>
+                </td>
+                <td class="border-t">
+                    <a class="flex items-center px-6 py-4 focus:text-indigo-500" 
+                       href="@Link.GetPathByName("Platos.Edit", new { id = plato.PlatoId} )"
+                    >
+                        @plato.Name
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

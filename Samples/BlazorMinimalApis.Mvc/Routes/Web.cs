@@ -3,11 +3,12 @@ using BlazorMinimalApis.Mvc.Lib;
 using BlazorMinimalApis.Mvc.Views.Contacts;
 using BlazorMinimalApis.Mvc.Views.Home;
 using System.Collections.Generic;
+using BlazorMinimalApis.Mvc.Data;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace BlazorMinimalApis.Mvc.Routes;
 
-public class Web : IRouteDefinition
+public class Web(RambosaDbContext dbContext) : IRouteDefinition
 {
 	public void Map(WebApplication app)
 	{
@@ -41,6 +42,13 @@ public class Web : IRouteDefinition
 
 		app.MapGet("/contacts/{id}/delete", new ContactController().Delete)
 			.WithName("Contacts.Delete");
+
+		#endregion
+
+		#region Platos
+
+		app.MapGet("/platos", new PlatoController(dbContext).List)
+			.WithName("Platos");
 
 		#endregion
 	}
